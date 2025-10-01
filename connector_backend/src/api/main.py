@@ -1,16 +1,6 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+# This file is deprecated - main application is now in src/main.py
+# Keeping for backward compatibility
 
-app = FastAPI()
+from src.main import app
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get("/")
-def health_check():
-    return {"message": "Healthy"}
+__all__ = ["app"]

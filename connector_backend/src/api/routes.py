@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from src.api.endpoints import connectors, auth, workflows, webhooks, monitoring, websockets
+from src.api.endpoints import atl_conn
 
 api_router = APIRouter()
 
@@ -39,4 +40,11 @@ api_router.include_router(
     websockets.router,
     prefix="/ws",
     tags=["websockets"]
+)
+
+# New Atlassian connection endpoints (prototype, in-memory)
+api_router.include_router(
+    atl_conn.router,
+    prefix="",
+    tags=["atlassian"]
 )
